@@ -15,9 +15,9 @@ class TaskController extends Controller
 
     public function store(Request $request)
     {
-        $assignees = $request->input('assignee');
-
         $task = Task::create($request->all());
+
+        $assignees = $request->input('assignee');
 
         foreach ($assignees as $assigneeId) {
             $assignee = Assignee::findOrFail($assigneeId);
@@ -29,13 +29,24 @@ class TaskController extends Controller
 
     public function show($id)
     {
-        return Task::findOrFail($id);
+        return Task::with(['assignees', 'priority', 'status'])->findOrFail($id);
     }
 
     public function update(Request $request, $id)
     {
         $task = Task::findOrFail($id);
         $task->update($request->all());
+
+        $task->assignees()->detach();
+
+        $assignees = $request->input('assignee');
+
+        foreach ($assignees as $assigneeId) {
+            $assignee = Assignee::findOrFail($assigneeId);
+
+            $task->assignees()->attach($assignee->id);
+        }
+
         return $task;
     }
 
