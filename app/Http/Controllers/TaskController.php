@@ -53,7 +53,9 @@ class TaskController extends Controller
     public function destroy($id)
     {
         $task = Task::findOrFail($id);
+        $task->assignees()->detach();
         $task->delete();
+
         return ['message' => 'Task deleted successfully'];
     }
 }
