@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
-use App\Http\Controllers\TaskAssigneeController;
 use App\Http\Controllers\PriorityController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\AssigneeController;
@@ -30,16 +29,8 @@ Route::put('tasks/{id}', [TaskController::class, 'update']);
 Route::delete('tasks/{id}', [TaskController::class, 'destroy']);
 
 Route::get('priorities', [PriorityController::class, 'index']);
-Route::post('priorities', [PriorityController::class, 'store']);
-Route::get('priorities/{id}', [PriorityController::class, 'show']);
-Route::put('priorities/{id}', [PriorityController::class, 'update']);
-Route::delete('priorities/{id}', [PriorityController::class, 'destroy']);
 
 Route::get('statuses', [StatusController::class, 'index']);
-Route::post('statuses', [StatusController::class, 'store']);
-Route::get('statuses/{id}', [StatusController::class, 'show']);
-Route::put('statuses/{id}', [StatusController::class, 'update']);
-Route::delete('statuses/{id}', [StatusController::class, 'destroy']);
 
 Route::get('assignees', [AssigneeController::class, 'index']);
 Route::post('assignees', [AssigneeController::class, 'store']);

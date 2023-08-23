@@ -37,14 +37,16 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->update($request->all());
 
-        $task->assignees()->detach();
-
         $assignees = $request->input('assignee');
 
-        foreach ($assignees as $assigneeId) {
-            $assignee = Assignee::findOrFail($assigneeId);
+        if (!empty($assignees)) {
+            $task->assignees()->detach();
 
-            $task->assignees()->attach($assignee->id);
+            foreach ($assignees as $assigneeId) {
+                $assignee = Assignee::findOrFail($assigneeId);
+
+                $task->assignees()->attach($assignee->id);
+            }
         }
 
         return $task;

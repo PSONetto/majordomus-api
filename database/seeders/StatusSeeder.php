@@ -21,9 +21,6 @@ class StatusSeeder extends Seeder
             ],
             [
                 'name' => 'Done',
-            ],
-            [
-                'name' => 'Overdue',
             ]
         ]);
     }
