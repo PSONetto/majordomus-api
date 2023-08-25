@@ -32,7 +32,9 @@ class AssigneeController extends Controller
     public function destroy($id)
     {
         $assignee = Assignee::findOrFail($id);
+        $assignee->tasks()->detach();
         $assignee->delete();
-        return ['message' => 'Task deleted successfully'];
+
+        return ['message' => 'Assignee deleted successfully'];
     }
 }
