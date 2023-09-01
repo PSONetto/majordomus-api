@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class AssigneeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Assignee::all();
+        $user = $request->input('user_id');
+        return Assignee::all()->where('user_id', $user);
     }
 
     public function store(Request $request)

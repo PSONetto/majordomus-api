@@ -15,7 +15,8 @@ class Task extends Model
         'description',
         'due_date',
         'priority_id',
-        'status_id'
+        'status_id',
+        'user_id'
     ];
 
     protected $guarded = [

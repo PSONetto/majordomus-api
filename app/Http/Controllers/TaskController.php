@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return Task::with(['assignees', 'priority', 'status'])->get();
+        $user = $request->input('user_id');
+        return Task::with(['assignees', 'priority', 'status'])->get()->where('user_id', $user);
     }
 
     public function store(Request $request)
