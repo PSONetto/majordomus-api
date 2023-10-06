@@ -3,11 +3,12 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Assignee>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Task>
  */
-class AssigneeFactory extends Factory
+class TaskFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +18,10 @@ class AssigneeFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'title' => fake()->sentence(),
+            'due_date' => fake()->date(),
+            'priority_id' => rand(1, 3),
+            'status_id' => rand(1, 3),
             'user_id' => 1,
         ];
     }
