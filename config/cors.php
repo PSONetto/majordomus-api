@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['GET, POST, PUT, DELETE, OPTIONS'],
 
-    'allowed_origins' => [env('ORIGIN_URL'), 'http://localhost'],
+    'allowed_origins' => [env('ORIGIN_URL')],
 
     'allowed_origins_patterns' => [],
 
