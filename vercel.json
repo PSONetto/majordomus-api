@@ -1,49 +1,37 @@
 {
     "version": 2,
-    "framework": null,
-
-    "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.6.0" }
-    },
-
-    "rewrites": [{ "source": "/(.*)", "destination": "/index.php" }],
-
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/index.php"
+        }
+    ],
     "headers": [
         {
-            "source": "/api/(.*)",
+            "source": "/(.*)",
             "headers": [
-                { "key": "Access-Control-Allow-Credentials", "value": "true" },
                 {
                     "key": "Access-Control-Allow-Origin",
                     "value": "https://majordomus-tasker.vercel.app"
                 },
                 {
                     "key": "Access-Control-Allow-Methods",
-                    "value": "GET,OPTIONS,DELETE,POST,PUT"
+                    "value": "GET, POST, PUT, DELETE, OPTIONS"
                 },
                 {
                     "key": "Access-Control-Allow-Headers",
-                    "value": "X-CSRF-Token, X-XSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-                }
-            ]
-        },
-        {
-            "source": "/sanctum/(.*)",
-            "headers": [
-                { "key": "Access-Control-Allow-Credentials", "value": "true" },
-                {
-                    "key": "Access-Control-Allow-Origin",
-                    "value": "https://majordomus-tasker.vercel.app"
-                },
-                {
-                    "key": "Access-Control-Allow-Methods",
-                    "value": "GET,OPTIONS,DELETE,POST,PUT"
-                },
-                {
-                    "key": "Access-Control-Allow-Headers",
-                    "value": "X-CSRF-Token, X-XSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+                    "value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
                 }
             ]
         }
-    ]
+    ],
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.10.1"
+        }
+    },
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false"
+    }
 }
