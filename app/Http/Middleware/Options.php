@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class OptionsMiddleware
+class Options
 {
     public function handle($request, Closure $next)
     {
