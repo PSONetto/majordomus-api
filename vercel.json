@@ -2,8 +2,7 @@
     "version": 2,
     "routes": [
         {
-            "src": "/(.*)",
-            "dest": "/index.php",
+            "src": "/api/(.*)",
             "headers": {
                 "Access-Control-Allow-Origin": "https://majordomus-tasker.vercel.app",
                 "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
