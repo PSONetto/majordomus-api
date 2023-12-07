@@ -31,13 +31,6 @@
 
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
-        "SESSION_DRIVER": "cookie",
-        "POSTGRES_URL": "postgres://default:Tu4A1bEYQRmq@ep-wispy-shadow-14834073-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb",
-        "POSTGRES_PRISMA_URL": "postgres://default:Tu4A1bEYQRmq@ep-wispy-shadow-14834073-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb?pgbouncer=true&connect_timeout=15",
-        "POSTGRES_URL_NON_POOLING": "postgres://default:Tu4A1bEYQRmq@ep-wispy-shadow-14834073.us-east-1.postgres.vercel-storage.com:5432/verceldb",
-        "POSTGRES_USER": "default",
-        "POSTGRES_HOST": "ep-wispy-shadow-14834073-pooler.us-east-1.postgres.vercel-storage.com",
-        "POSTGRES_PASSWORD": "Tu4A1bEYQRmq",
-        "POSTGRES_DATABASE": "verceldb"
+        "SESSION_DRIVER": "cookie"
     }
 }
