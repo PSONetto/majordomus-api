@@ -9,7 +9,7 @@ class ApiRedirect
         // Check if the environment is production and the request URI contains "/api/"
         if (app()->environment('production') && substr_count($request->getRequestUri(), '/api/') === 1) {
             // Redirect the request to "/api/api/"
-            $redirectedUri = $request->getRequestUri();
+            $redirectedUri = str_replace('/api/', '', $request->getRequestUri());
 
             return redirect($redirectedUri, 301);
         }
